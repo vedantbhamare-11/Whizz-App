@@ -11,7 +11,7 @@ const Toggle: FC<ToggleProps> = ({ isVegOnly, onToggle }) => {
     <div
       onClick={onToggle}
       className={`w-8 h-4 flex items-center p-1 rounded-full cursor-pointer ${
-        isVegOnly ? "bg-green-500" : "bg-gray-300"
+        isVegOnly ? "bg-[#3CAE06]" : "bg-gray-300"
       }`}
     >
       <div

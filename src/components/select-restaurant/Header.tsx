@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 flex flex-row gap-4">
+    <div className="px-4 pt-4 flex flex-row gap-4">
       {/* Left side: Search bar */}
       <div className="flex-1 flex flex-col gap-6">
         <div className="flex flex-col gap-2 mb-4">
@@ -29,9 +29,10 @@ const Header = () => {
           <h2 className="text-md font-bold">VEG</h2>
           <h3 className="text-xs font-semibold">MODE</h3>
         </div>
-        
         {/* Veg Only Toggle */}
+        <div className="mt-1">
         <Toggle isVegOnly={isVegOnly} onToggle={handleVegToggle} />
+        </div>
       </div>
     </div>
   );

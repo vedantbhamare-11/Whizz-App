@@ -40,3 +40,13 @@ body {
 .border-primary {
   border-color: var(--primary-color);
 }
+
+/* Hide horizontal scrollbar but keep scrolling */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit-based browsers */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* For Internet Explorer 10+ */
+  scrollbar-width: none;      /* For Firefox */
+}
