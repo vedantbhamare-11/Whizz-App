@@ -3,7 +3,7 @@ const FilterButtons = () => {
     return (
       <div className="w-full p-4">
         {/* Horizontal scrollable container for buttons */}
-        <div className="flex space-x-2 overflow-x-auto scrollbar-hidden pb-4">
+        <div className="flex justify-center space-x-2 overflow-x-auto scrollbar-hidden pb-4">
           {/* First Button with Slider Icon and Down Arrow */}
           <button className="flex h-8 items-center justify-between p-2 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-300 active:scale-95 active:bg-gray-200 whitespace-nowrap">
             <div className="flex items-center gap-1">
