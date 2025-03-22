@@ -3,6 +3,7 @@ import Header from "@/components/select-restaurant/Header";
 import CategorySection from "@/components/select-restaurant/CategorySection";
 import FilterButtons from "@/components/select-restaurant/FilterButtons";
 import WhizzclusiveCard from "@/components/select-restaurant/WhizzclusiveCard";
+import RestaurantCard from "@/components/select-restaurant/RestaurantCard";
 const SelectRestaurantPage = () => {
   return (
     <div>
@@ -10,6 +11,7 @@ const SelectRestaurantPage = () => {
       <CategorySection />
       <FilterButtons />
       <WhizzclusiveCard />
+      <RestaurantCard />
     </div>
   );
 };
