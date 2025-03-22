@@ -1,25 +1,30 @@
-// components/select-restaurant/CategorySection.tsx
-import { useState } from "react";
+"use client";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveCategory } from "../../redux/reducers/categorySlice"; // Import the action
 
-const categories = [
-  { name: "All", image: "/images/biryani.png" },
-  { name: "Meals", image: "/images/biryani.png" },
-  { name: "Rice", image: "/images/biryani.png" },
-  { name: "Starters", image: "/images/biryani.png" },
-  { name: "Curries", image: "/images/biryani.png" },
-  { name: "Desserts", image: "/images/biryani.png" },
-];
+interface Category {
+  name: string;
+  image: string;
+}
 
 const CategorySection = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const dispatch = useDispatch();
+
+  // Get categories and active category from Redux state
+  const { categories, activeCategory } = useSelector((state: any) => state.category);
+
+  // Handle setting active category
+  const handleCategoryClick = (category: Category) => {
+    dispatch(setActiveCategory(category.name)); // Dispatch the action to set active category
+  };
 
   return (
     <div className="w-full px-4">
       <div className="flex lg:justify-center overflow-x-auto space-x-8 pb-4 scrollbar-hidden">
-        {categories.map((category) => (
+        {categories.map((category: Category) => (
           <div
             key={category.name}
-            onClick={() => setActiveCategory(category.name)}
+            onClick={() => handleCategoryClick(category)} // Now 'category' is typed
             className={`cursor-pointer flex flex-col items-center ${
               activeCategory === category.name
                 ? "text-[#3CAE06]"

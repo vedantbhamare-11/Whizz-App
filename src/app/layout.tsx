@@ -1,6 +1,6 @@
-// app/layout.tsx
 import { Metadata } from "next";
 import { Geist } from "next/font/google";
+import ProviderWrapper from "../components/ProviderWrapper"; // Import ProviderWrapper
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
-        {children}
+        <ProviderWrapper>
+          {children}
+        </ProviderWrapper>
       </body>
     </html>
   );
