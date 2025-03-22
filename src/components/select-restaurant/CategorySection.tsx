@@ -15,7 +15,7 @@ const CategorySection = () => {
 
   return (
     <div className="w-full px-4">
-      <div className="flex justify-center overflow-x-auto space-x-8 pb-4 scrollbar-hidden">
+      <div className="flex lg:justify-center overflow-x-auto space-x-8 pb-4 scrollbar-hidden">
         {categories.map((category) => (
           <div
             key={category.name}
