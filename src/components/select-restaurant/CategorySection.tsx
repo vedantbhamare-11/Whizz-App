@@ -29,7 +29,7 @@ const CategorySection = () => {
             <img
               src={category.image}
               alt={category.name}
-              className="w-20 h-16"
+              className="w-20 h-12"
             />
             <p className="w-16 text-center">{category.name}</p>
             {/* Underline active category */}
