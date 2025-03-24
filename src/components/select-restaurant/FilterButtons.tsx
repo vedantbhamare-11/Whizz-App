@@ -1,28 +1,30 @@
-import { useState } from "react";
+"use client"; // This component is client-side
+
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveButton, toggleOption, toggleDropdown } from "../../redux/reducers/filterSlice";
 import Dropdown from "../common/Dropdown"; // Assuming Dropdown component is in the common folder
 
 const FilterButtons = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [activeButton, setActiveButton] = useState<string>("");
+  const dispatch = useDispatch();
 
-  const filterOptions = [
-    { label: "Vegetarian", value: "vegetarian" },
-    { label: "Non-Vegetarian", value: "non-vegetarian" },
-    { label: "Vegan", value: "vegan" },
-    { label: "Spicy", value: "spicy" },
-    { label: "Low Calorie", value: "low-calorie" },
-  ];
+  // Fetching filter data from Redux store
+  const { activeButton, filterButtons, filterOptions, isDropdownOpen } = useSelector(
+    (state: any) => state.filter
+  );
 
+  // Handle Option change in dropdown
   const handleOptionChange = (value: string, isChecked: boolean) => {
-    console.log(`${value} is ${isChecked ? "checked" : "unchecked"}`);
+    dispatch(toggleOption(value)); // Update selected filter option
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
+  // Handle Button Click
   const handleButtonClick = (buttonName: string) => {
-    setActiveButton(buttonName);
+    dispatch(setActiveButton(buttonName)); // Update active filter button
+  };
+
+  // Toggle Dropdown visibility
+  const toggleDropdownVisibility = () => {
+    dispatch(toggleDropdown()); // Toggle the dropdown visibility
   };
 
   return (
@@ -31,7 +33,7 @@ const FilterButtons = () => {
       <div className="flex lg:justify-center space-x-2 overflow-x-auto scrollbar-hidden pb-4">
         {/* Filter Button - Dropdown Toggle */}
         <button
-          onClick={toggleDropdown}
+          onClick={toggleDropdownVisibility} // Toggle dropdown visibility on button click
           className="flex h-8 items-center justify-between p-2 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-300 active:scale-95 active:bg-gray-200 whitespace-nowrap"
         >
           <div className="flex items-center gap-1">
@@ -68,55 +70,24 @@ const FilterButtons = () => {
         </button>
 
         {/* Other Buttons */}
-        <button
-          onClick={() => handleButtonClick("underRs200")}
-          className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-            activeButton === "underRs200" ? "bg-[#3CAE06] text-white" : "text-[#1E1E1E]"
-          }`}
-        >
-          <span className="text-sm">Under Rs 200</span>
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("greatOffers")}
-          className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-            activeButton === "greatOffers" ? "bg-[#3CAE06] text-white" : "text-[#1E1E1E]"
-          }`}
-        >
-          <span className="text-sm">Great Offers</span>
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("quick")}
-          className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-            activeButton === "quick" ? "bg-[#3CAE06] text-white" : "text-[#1E1E1E]"
-          }`}
-        >
-          <span className="text-sm">Quick</span>
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("rating4")}
-          className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-            activeButton === "rating4" ? "bg-[#3CAE06] text-white" : "text-[#1E1E1E]"
-          }`}
-        >
-          <span className="text-sm">Rating 4.0+</span>
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("gourmet")}
-          className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-            activeButton === "gourmet" ? "bg-[#3CAE06] text-white" : "text-[#1E1E1E]"
-          }`}
-        >
-          <span className="text-sm">Gourmet</span>
-        </button>
+        {filterButtons.map((button: { label: string; value: string }) => (
+          <button
+            key={button.value}
+            onClick={() => handleButtonClick(button.value)}
+            className={`p-2 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
+              activeButton === button.value
+                ? "bg-[#3CAE06] text-white"
+                : "text-[#1E1E1E]"
+            }`}
+          >
+            <span className="text-sm">{button.label}</span>
+          </button>
+        ))}
       </div>
 
       {/* Conditionally Render Dropdown */}
       {isDropdownOpen && (
-        <div className="absolute lg:left-100 z-10 bg-white shadow-md p-4 rounded-lg ">
+        <div className="absolute z-10 bg-white shadow-md p-4 rounded-lg">
           <Dropdown
             title="Select Filters"
             options={filterOptions}
