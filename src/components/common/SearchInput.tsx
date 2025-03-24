@@ -1,10 +1,6 @@
 // components/common/SearchInput.tsx
 import { FC } from "react";
-
-interface SearchInputProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-}
+import { SearchInputProps } from "@/types/types";
 
 const SearchInput: FC<SearchInputProps> = ({ searchQuery, setSearchQuery }) => {
   return (

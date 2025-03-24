@@ -1,11 +1,8 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveCategory } from "../../redux/reducers/categorySlice"; // Import the action
+import { Category } from "@/types/types";
 
-interface Category {
-  name: string;
-  image: string;
-}
 
 const CategorySection = () => {
   const dispatch = useDispatch();

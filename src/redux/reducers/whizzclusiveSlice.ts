@@ -1,15 +1,12 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface WhizzclusiveCardState {
-  imagePath: string;
-}
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { WhizzclusiveCardState } from "@/types/types";
 
 const initialState: WhizzclusiveCardState = {
   imagePath: "/images/whizzclusive.png", // Default image path, can be replaced
 };
 
 const whizzclusiveSlice = createSlice({
-  name: 'whizzclusive',
+  name: "whizzclusive",
   initialState,
   reducers: {
     setImagePath(state, action: PayloadAction<string>) {

@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface FilterState {
-  activeButton: string;
-  filterButtons: { label: string; value: string }[];
-  filterOptions: { label: string; value: string }[];
-  isDropdownOpen: boolean;
-}
+import { FilterState } from "@/types/types";
 
 const initialState: FilterState = {
   activeButton: "",
@@ -42,5 +36,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setActiveButton, toggleOption, toggleDropdown } = filterSlice.actions;
+export const { setActiveButton, toggleOption, toggleDropdown } =
+  filterSlice.actions;
 export default filterSlice.reducer;

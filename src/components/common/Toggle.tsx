@@ -1,10 +1,6 @@
 // components/common/Toggle.tsx
 import { FC } from "react";
-
-interface ToggleProps {
-  isVegOnly: boolean;
-  onToggle: () => void;
-}
+import { ToggleProps } from "@/types/types";
 
 const Toggle: FC<ToggleProps> = ({ isVegOnly, onToggle }) => {
   return (

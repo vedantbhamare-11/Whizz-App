@@ -1,11 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CategoryState } from "@/types/types";
 
 // Define the initial state of categories
-interface CategoryState {
-  categories: { name: string; image: string }[];
-  activeCategory: string;
-}
-
 const initialState: CategoryState = {
   categories: [
     { name: "All", image: "/images/biryani.png" },
