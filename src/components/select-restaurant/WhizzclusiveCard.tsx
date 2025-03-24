@@ -1,7 +1,5 @@
 "use client"; // Mark this as a client component
-
 import { useDispatch, useSelector } from "react-redux";
-import { setImagePath } from "../../redux/reducers/whizzclusiveSlice"; // Import the action
 
 const WhizzclusiveCard = () => {
   const dispatch = useDispatch();
@@ -10,12 +8,9 @@ const WhizzclusiveCard = () => {
   const { imagePath } = useSelector((state: any) => state.whizzclusive);
 
   // You can dispatch an action to change the image path if needed
-  const changeImage = (newImagePath: string) => {
-    dispatch(setImagePath(newImagePath));
-  };
 
   return (
-    <div className="relative shadow-lg rounded-3xl w-full max-w-xs mx-auto overflow-hidden">
+    <div className="relative p-2 rounded-3xl w-full max-w-xs mx-auto overflow-hidden">
       {/* Image */}
       <img
         src={imagePath}
