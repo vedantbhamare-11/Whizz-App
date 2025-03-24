@@ -34,6 +34,7 @@ export interface CategoryState {
 export interface SearchInputProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  placeholder: string;
 }
 
 //Interface for Toggle

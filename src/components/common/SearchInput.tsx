@@ -2,12 +2,12 @@
 import { FC } from "react";
 import { SearchInputProps } from "@/types/types";
 
-const SearchInput: FC<SearchInputProps> = ({ searchQuery, setSearchQuery }) => {
+const SearchInput: FC<SearchInputProps> = ({ searchQuery, setSearchQuery, placeholder }) => {
   return (
     <div className="relative w-full">
       <input
         type="text"
-        placeholder='Search "Shawarma"'
+        placeholder={placeholder} // Using the placeholder prop here
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="p-6 pl-10 border border-gray-300 rounded-xl h-12 mt-2 w-full"

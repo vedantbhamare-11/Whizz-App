@@ -19,7 +19,7 @@ const Header = () => {
       {/* Left side: Search bar */}
       <div className="flex-1 flex flex-col gap-6">
         <div className="flex flex-col gap-2 mb-4">
-          <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <SearchInput placeholder='"Shawarma"' searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
       </div>
 
