@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Geist } from "next/font/google";
-import ProviderWrapper from "../components/ProviderWrapper"; // Import ProviderWrapper
+import ProviderWrapper from "../components/common/ProviderWrapper"; // Import ProviderWrapper
 import "./globals.css";
 
 const geistSans = Geist({
