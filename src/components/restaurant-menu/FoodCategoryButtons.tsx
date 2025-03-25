@@ -1,8 +1,8 @@
-// components/select-restaurant/FoodCategoryButtons.tsx
 import { useState } from "react";
 
 const FoodCategoryButtons = () => {
-  const [activeButton, setActiveButton] = useState<string>("");
+  // Default active button is "all"
+  const [activeButton, setActiveButton] = useState<string>("all");
 
   // Hardcoded food categories
   const foodCategories = [
@@ -27,11 +27,11 @@ const FoodCategoryButtons = () => {
           <button
             key={button.value}
             onClick={() => handleButtonClick(button.value)}
-            className={`px-4 flex items-center justify-between  h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
-                activeButton === button.value
-                  ? "bg-[#3CAE06] text-white"
-                  : "text-[#1E1E1E]"
-              }`}
+            className={`px-4 flex items-center justify-between h-8 border border-gray-200 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95 active:bg-gray-200 whitespace-nowrap ${
+              activeButton === button.value
+                ? "bg-[#3CAE06] text-white"
+                : "text-[#1E1E1E]"
+            }`}
           >
             <span className="text-sm">{button.label}</span>
           </button>

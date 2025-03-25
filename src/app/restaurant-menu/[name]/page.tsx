@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Import from next/navigation
 import SearchInput from "@/components/common/SearchInput"; // Assuming SearchInput is a shared component
 import FoodCategoryButtons from "@/components/restaurant-menu/FoodCategoryButtons";
+import HorizontalLine from "@/components/common/HorizontalLine";
 const RestaurantMenuPage = () => {
   const { name } = useParams(); // This will give you access to the [name] route parameter
 
@@ -51,6 +52,7 @@ const RestaurantMenuPage = () => {
         } }  /> 
       </div>
       <FoodCategoryButtons />
+      <HorizontalLine  />
     </div>
   );
 };

@@ -55,3 +55,10 @@ export interface FilterState {
 export interface WhizzclusiveCardState {
   imagePath: string;
 }
+
+//Interface for Horizontal line
+export interface HorizontalLineProps {
+  color?: string; // Customizable color (Tailwind CSS color class)
+  thickness?: string; // Customizable thickness (Tailwind CSS thickness class)
+  className?: string; // Additional customization (e.g., margins or other styles)
+}
