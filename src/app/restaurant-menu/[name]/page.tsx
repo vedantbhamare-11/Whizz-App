@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Import from next/navigation
 import SearchInput from "@/components/common/SearchInput"; // Assuming SearchInput is a shared component
-
+import FoodCategoryButtons from "@/components/restaurant-menu/FoodCategoryButtons";
 const RestaurantMenuPage = () => {
   const { name } = useParams(); // This will give you access to the [name] route parameter
 
@@ -29,6 +29,7 @@ const RestaurantMenuPage = () => {
     }
   }, [name]);
 
+
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -47,8 +48,9 @@ const RestaurantMenuPage = () => {
       <div className="p-4">
         <SearchInput placeholder="Search..." searchQuery={""} setSearchQuery={function (query: string): void {
           throw new Error("Function not implemented.");
-        } }  />
+        } }  /> 
       </div>
+      <FoodCategoryButtons />
     </div>
   );
 };
