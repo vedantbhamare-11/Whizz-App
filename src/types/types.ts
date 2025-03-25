@@ -62,3 +62,10 @@ export interface HorizontalLineProps {
   thickness?: string; // Customizable thickness (Tailwind CSS thickness class)
   className?: string; // Additional customization (e.g., margins or other styles)
 }
+
+//Interface for Menu Item
+export interface MenuItemProps {
+  dishName: string;
+  dishImage: string;
+  price: string;
+}
